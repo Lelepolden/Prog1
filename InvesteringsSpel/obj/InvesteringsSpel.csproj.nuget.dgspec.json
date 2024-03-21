@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
+        "projectName": "InvesteringsSpel",
+        "projectPath": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
+        "packagesPath": "C:\\Users\\leopold.seidenglanz\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\leopold.seidenglanz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Raylib-cs": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
