@@ -10,9 +10,16 @@ Rectangle clickstats = new Rectangle(10, 280, 620, 150);
 Rectangle background = new Rectangle(0, -10, 640, 450);
 Rectangle click = new Rectangle(10, 430, 620, 480);
 Rectangle profile = new Rectangle(508, 920, 112, 60);
+Rectangle earnings = new Rectangle(264, 920, 112, 60);
+Rectangle business = new Rectangle(142, 920, 112, 60);
+Rectangle items = new Rectangle(386, 920, 112, 60);
+Rectangle investing = new Rectangle(20, 920, 112, 60);
+// Profile profilesida = new Profile();
 
 float Balance = 0;
-float Multiplier = 1;
+float Multiplier = 1; // Mulitpliern finns så att mängden pengar man får per klick ska kunna ändras
+int upgradevariabel = 50;  //flyttar på texten ut ur skärmen efter man använd upgraderingsknappen
+int upgradevariabel2 = 450;
 
 string scene = "earnings";
 
@@ -26,47 +33,125 @@ while (!Raylib.WindowShouldClose())
 {
     Raylib.BeginDrawing();
 
-    if (scene == "earnings") { }
+    if (scene == "earnings")
+    {      //Scenen hemskärm"" för varje kategori som till exempel profile, items och earnings finns det en egen scene.
+        Raylib.ClearBackground(Color.Gray);
+        Raylib.DrawRectangle(10, 910, 620, 80, Color.DarkGray);
+        Raylib.DrawRectangleRec(profile, Color.Gray);
+        Raylib.DrawRectangleRec(earnings, Color.Gray);
+        Raylib.DrawRectangleRec(items, Color.Gray);
+        Raylib.DrawRectangleRec(business, Color.Gray);
+        Raylib.DrawRectangleRec(investing, Color.Gray);
+        Raylib.DrawText("Profile", 518, 937, 26, Color.Black);
+        Raylib.DrawText("Items", 402, 937, 30, Color.Black);
+        Raylib.DrawText("Earnings", 274, 937, 22, Color.Black);
+        Raylib.DrawText("Business", 152, 937, 20, Color.Black);
+        Raylib.DrawText("Investing", 30, 937, 20, Color.Black);
+        Raylib.DrawRectangleRounded(background, 0.1f, 10, Color.DarkBlue);
+        Raylib.DrawRectangleRounded(balance, 0.3f, 10, Color.Black);
+        Raylib.DrawRectangleRounded(clickstats, 0.3f, 10, Color.SkyBlue);
+        Raylib.DrawText("Upgrade Clicker", upgradevariabel, 330, 50, Color.White);
+        Raylib.DrawText("Cost = 100", upgradevariabel2, 380, 30, Color.White);
+
+        Vector2 mousePos = Raylib.GetMousePosition();
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, click)) //Om musen är i rectangeln 'click' så adderas mulipliern till Balance
+        {
+            Balance += Multiplier;
+        }
+        Raylib.DrawText(Balance.ToString() + " kr", 50, 110, 50, Color.White);
+
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, clickstats) && Balance >= 100)//Checkar om man har nog med pengar i Balance för att kunna upgradera, samt kollar om musen är på knappen
+        {
+            Multiplier = 10;
+        }
+
+        if (Multiplier >= 10) //Ändrar variabeln åvan igenom att märka om upgraderings knappen har klickats
+        {
+            upgradevariabel = 700; //flyttar första texten ut ur skärmen efter man använd upgraderingsknappen
+            upgradevariabel2 = 700; //flyttar andra texten ut ur skärmen efter man använd upgraderingsknappen
+            Raylib.DrawText("Clicker Maxed", 110, 330, 50, Color.White); //Skapar en ny text som visar att man har maxat klickaren
+        }
+
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, profile)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "Profile";
+        }
+
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "earnings";
+        }
+
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "investing";
+        }
+        
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "business";
+        }
+        
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "items";
+        }
+    }
+    if (scene == "Profile")
+    {
+        showprofile();
+    }
+
+
+    Raylib.EndDrawing();
+}
+Raylib.CloseWindow();
+
+
+
+
+
+
+
+
+
+
+
+void showprofile()
+{
+    Vector2 mousePos = Raylib.GetMousePosition();
+
     Raylib.ClearBackground(Color.Gray);
     Raylib.DrawRectangle(10, 910, 620, 80, Color.DarkGray);
     Raylib.DrawRectangleRec(profile, Color.Gray);
-    Raylib.DrawRectangle(386, 920, 112, 60, Color.Gray);
-    Raylib.DrawRectangle(264, 920, 112, 60, Color.Gray);
-    Raylib.DrawRectangle(142, 920, 112, 60, Color.Gray);
-    Raylib.DrawRectangle(20, 920, 112, 60, Color.Gray);
+    Raylib.DrawRectangleRec(earnings, Color.Gray);
+    Raylib.DrawRectangleRec(items, Color.Gray);
+    Raylib.DrawRectangleRec(business, Color.Gray);
+    Raylib.DrawRectangleRec(investing, Color.Gray);
     Raylib.DrawText("Profile", 518, 937, 26, Color.Black);
     Raylib.DrawText("Items", 402, 937, 30, Color.Black);
     Raylib.DrawText("Earnings", 274, 937, 22, Color.Black);
     Raylib.DrawText("Business", 152, 937, 20, Color.Black);
     Raylib.DrawText("Investing", 30, 937, 20, Color.Black);
-    Raylib.DrawRectangleRounded(background, 0.1f, 10, Color.DarkBlue);
-    Raylib.DrawRectangleRounded(balance, 0.3f, 10, Color.Black);
-    Raylib.DrawRectangleRounded(clickstats, 0.3f, 10, Color.SkyBlue);
 
 
-    Vector2 mousePos = Raylib.GetMousePosition();
-    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, click))
-    {
-        Balance += Multiplier;
-    }
-    Raylib.DrawText(Balance.ToString() + " kr", 50, 110, 50, Color.White);
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "earnings";
+        }
 
-    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, clickstats) && Balance >= 1000)
-    {
-        Multiplier = 10;
-    }
-    Raylib.DrawText("Upgrade Clicker", 110, 330, 50, Color.White);
-
-    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, profile))
-    {
-        (scene == "Profile")
-    }
-
-    if (scene == "Profile")
-    {
-        Profile Profile = new Profile();
-    }
-
-    Raylib.EndDrawing();
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "investing";
+        }
+        
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "business";
+        }
+        
+        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // Skapar en ny scene för Profil sidan
+        {
+            scene = "items";
+        }
 }
-Raylib.CloseWindow();
