@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KJ7vKHsk8wCDvkh0xoBoBhQ5i7/2MyOF7GvDxabij7+gMFUi26y/OEpn7wBlLAmzgnlkU/tegC8slzclPAk5OA==",
+  "dgSpecHash": "wjatIlqCpE58HqLb77EC7OUyMWmTfmCMfP2CnYDo+b1FzW2a0nJsP6lQ2U1ihUxg8muet0wNuG0RZzzS7yltgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
+  "projectFilePath": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leopold.seidenglanz\\.nuget\\packages\\raylib-cs\\6.0.0\\raylib-cs.6.0.0.nupkg.sha512",
     "C:\\Users\\leopold.seidenglanz\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"

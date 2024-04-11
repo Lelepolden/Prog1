@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {}
+    "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {
+    "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
+        "projectUniqueName": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
         "projectName": "InvesteringsSpel",
-        "projectPath": "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
+        "projectPath": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\InvesteringsSpel.csproj",
         "packagesPath": "C:\\Users\\leopold.seidenglanz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\obj\\",
+        "outputPath": "c:\\Users\\leopold.seidenglanz\\Documents\\Prog1\\InvesteringsSpel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leopold.seidenglanz\\AppData\\Roaming\\NuGet\\NuGet.Config"
