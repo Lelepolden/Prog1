@@ -21,12 +21,12 @@ float Multiplier = 1; // Mulitpliern finns så att mängden pengar man får per 
 int upgradevariabel = 50;  //flyttar på texten ut ur skärmen efter man använd upgraderingsknappen
 int upgradevariabel2 = 450;
 float stat1 = 0;
+string[] array = { "Startat", "Halvägs där", "Upgraderat clickaren", "Första Löken" };
 
 string scene = "earnings";
 
 
 Raylib.InitWindow(640, 1000, "Spel");
-
 
 
 
@@ -58,7 +58,7 @@ while (!Raylib.WindowShouldClose())
         if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, click)) //Om musen är i rectangeln 'click' så adderas mulipliern till Balance
         {
             Balance += Multiplier;
-            stat1 ++;
+            stat1++;
         }
         Raylib.DrawText(Balance.ToString() + " kr", 50, 110, 50, Color.White);
 
@@ -89,35 +89,36 @@ while (!Raylib.WindowShouldClose())
         {
             scene = "investing";
         }
-        
+
         if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
         {
             scene = "business";
         }
-        
+
         if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
         {
             scene = "items";
         }
+
     }
     if (scene == "Profile")
     {
-        showprofile();
+        ShowProfile();
     }
 
-        if (scene == "items")
+    if (scene == "items")
     {
-        showitems();
+        ShowItems();
     }
 
-        if (scene == "business")
+    if (scene == "business")
     {
-        showbusiness();
+        ShowBusiness();
     }
 
-        if (scene == "investing")
+    if (scene == "investing")
     {
-        showinvesting();
+        ShowInvesting();
     }
 
 
@@ -135,7 +136,7 @@ Raylib.CloseWindow();
 
 
 
-void showprofile()
+void ShowProfile()
 {
     Vector2 mousePos = Raylib.GetMousePosition();
     Rectangle net = new Rectangle(10, 10, 620, 250);
@@ -164,39 +165,49 @@ void showprofile()
     Raylib.DrawText(stat1.ToString() + " clicks", 50, 350, 30, Color.White);
     Raylib.DrawRectangleRounded(reset, 0.1f, 10, Color.Red);
     Raylib.DrawText("Reset Game", 230, 840, 30, Color.White);
+    Raylib.DrawText("Achievements:", 50, 500, 50, Color.Black);
+
+    for (int i = 0; i < 8; i++)
+    {
+        if (i == 0 && Balance >= 1) { Raylib.DrawText(array[i], 50, 550, 30, Color.White); }
+        if (i == 1 && Balance >= 50) { Raylib.DrawText(array[i], 50, 580, 30, Color.White); }
+        if (i == 2 && Balance >= 100) { Raylib.DrawText(array[i], 50, 610, 30, Color.White); }
+        if (i == 3 && Balance >= 1000) { Raylib.DrawText(array[i], 50, 640, 30, Color.White); }
+    }
 
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
-        {
-            scene = "earnings";
-        }
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
-        {
-            scene = "investing";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
-        {
-            scene = "business";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
-        {
-            scene = "items";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
+    {
+        scene = "earnings";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
+    {
+        scene = "investing";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
+    {
+        scene = "business";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
+    {
+        scene = "items";
+    }
 
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, reset)) // återgår till earnings sidan
-        {
-            //Resetta spelet
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, reset)) // återgår till earnings sidan
+    {
+        //Resetta spelet
+    }
 }
 
 
 
 
-void showitems()
+void ShowItems()
 {
     Vector2 mousePos = Raylib.GetMousePosition();
 
@@ -214,32 +225,32 @@ void showitems()
     Raylib.DrawText("Investing", 30, 937, 20, Color.Black);
 
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
-        {
-            scene = "earnings";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
+    {
+        scene = "earnings";
+    }
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
-        {
-            scene = "investing";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
-        {
-            scene = "business";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
-        {
-            scene = "items";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
+    {
+        scene = "investing";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
+    {
+        scene = "business";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
+    {
+        scene = "items";
+    }
 }
 
 
 
 
 
-void showbusiness()
+void ShowBusiness()
 {
     Vector2 mousePos = Raylib.GetMousePosition();
 
@@ -257,25 +268,25 @@ void showbusiness()
     Raylib.DrawText("Investing", 30, 937, 20, Color.Black);
 
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
-        {
-            scene = "earnings";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
+    {
+        scene = "earnings";
+    }
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
-        {
-            scene = "investing";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
-        {
-            scene = "business";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
-        {
-            scene = "items";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
+    {
+        scene = "investing";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
+    {
+        scene = "business";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
+    {
+        scene = "items";
+    }
 }
 
 
@@ -284,7 +295,7 @@ void showbusiness()
 
 
 
-void showinvesting()
+void ShowInvesting()
 {
     Vector2 mousePos = Raylib.GetMousePosition();
 
@@ -302,23 +313,23 @@ void showinvesting()
     Raylib.DrawText("Investing", 30, 937, 20, Color.Black);
 
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
-        {
-            scene = "earnings";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, earnings)) // återgår till earnings sidan
+    {
+        scene = "earnings";
+    }
 
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
-        {
-            scene = "investing";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
-        {
-            scene = "business";
-        }
-        
-        if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
-        {
-            scene = "items";
-        }
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, items)) // återgår till items sidan
+    {
+        scene = "investing";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, business)) // återgår till business sidan
+    {
+        scene = "business";
+    }
+
+    if (Raylib.IsMouseButtonPressed(MouseButton.Left) && Raylib.CheckCollisionPointRec(mousePos, investing)) // återgår till investing sidan
+    {
+        scene = "items";
+    }
 }
